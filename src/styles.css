@@ -1,0 +1,831 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+  --primary: #20d0bd;
+  --primary-dark: #04a897;
+  --primary-soft: #c8fff4;
+  --ink: #061832;
+  --text: #263755;
+  --muted: #8090ad;
+  --line: #dce5f1;
+  --page: #f5f8fb;
+  --card: #ffffff;
+  --danger: #ff6478;
+  --warning: #f7b928;
+  --info: #6a8dff;
+  --success: #18b98f;
+  --shadow: 0 10px 30px rgba(17, 34, 64, 0.08);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, Arial, Helvetica, sans-serif; color: var(--ink); background: var(--page); }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button, a { cursor: pointer; }
+
+.page-title { margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -0.04em; }
+.page-subtitle { margin: 8px 0 26px; color: #627190; font-size: 16px; }
+.safe-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }
+.safe-input, .safe-select, .safe-textarea { width: 100%; border: 1px solid #d8e2ee; border-radius: 12px; background: #fff; outline: none; color: var(--text); }
+.safe-input, .safe-select { min-height: 48px; padding: 0 14px; }
+.safe-textarea { min-height: 130px; padding: 14px; resize: vertical; }
+.field-label { display: block; color: #8897b3; font-size: 12px; text-transform: uppercase; font-weight: 900; letter-spacing: .04em; margin-bottom: 7px; }
+.safe-button, .safe-button-outline, .safe-button-ghost, .safe-button-danger { min-height: 44px; border-radius: 12px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 900; border: 0; }
+.safe-button { background: var(--primary); color: #041833; box-shadow: 0 8px 18px rgba(32,208,189,.24); }
+.safe-button:hover { background: #1bc5b3; }
+.safe-button-outline { background: #fff; border: 1px solid #d8e2ee; color: #52617e; }
+.safe-button-ghost { background: transparent; color: #5d6c87; padding-left: 0; }
+.safe-button-danger { background: #fff3f4; color: var(--danger); border: 1px solid #ffd2d9; }
+.badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 900; }
+.badge.success { background: #dffdf2; color: var(--success); }
+.badge.warning { background: #fff5cd; color: #c28700; }
+.badge.danger { background: #ffe8ec; color: var(--danger); }
+.badge.info { background: #edf1ff; color: var(--info); }
+.toggle { position: relative; display: inline-flex; width: 42px; height: 24px; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle span { position: absolute; inset: 0; border-radius: 999px; background: #ced7e5; transition: .2s; }
+.toggle span::after { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; border-radius: 50%; background: #fff; transition: .2s; box-shadow: 0 1px 5px rgba(0,0,0,.15); }
+.toggle input:checked + span { background: var(--primary); }
+.toggle input:checked + span::after { transform: translateX(18px); }
+.status-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; background: var(--success); }
+.status-dot.warning { background: var(--warning); }
+.status-dot.danger { background: var(--danger); }
+.status-dot.info { background: var(--info); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: #7e8ca7; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+.toast { background: #07111f; color: #fff; padding: 12px 14px; border-radius: 14px; font-weight: 800; }
+
+@media (max-width: 900px) {
+  .page-title { font-size: 28px; }
+}
+
+/* ─────────────────────────────────────────────
+   SAFEHOME DARK MODE - CLEAN VERSION
+   Replace all previous body.dark-mode rules with this block
+   ───────────────────────────────────────────── */
+
+body.dark-mode {
+  --page: #111a2e;
+  --card: #1e2a44;
+  --ink: #ffffff;
+  --text: #e5eefc;
+  --muted: #b8c7dd;
+  --line: #3d4b66;
+  --primary-soft: #123c3a;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+
+  background: var(--page);
+  color: var(--ink);
+}
+
+/* Layout general */
+body.dark-mode .app-layout,
+body.dark-mode .content,
+body.dark-mode .route-box {
+  background: var(--page);
+  color: var(--ink);
+}
+
+/* Sidebar */
+body.dark-mode .sidebar {
+  background: #111827;
+  border-right-color: var(--line);
+  color: var(--ink);
+}
+
+body.dark-mode .brand {
+  color: #ffffff;
+}
+
+body.dark-mode .brand-icon {
+  background: var(--primary);
+  color: #041833;
+}
+
+body.dark-mode .menu p {
+  color: #aab8cf;
+}
+
+body.dark-mode .menu a {
+  color: #d6e2f4;
+}
+
+body.dark-mode .menu a .material-icons {
+  background: #e8fff8;
+  color: #0f766e;
+}
+
+body.dark-mode .menu a.active,
+body.dark-mode .menu a:hover {
+  background: #123c3a;
+  color: var(--primary);
+}
+
+body.dark-mode .menu a.active .material-icons,
+body.dark-mode .menu a:hover .material-icons {
+  background: var(--primary);
+  color: #041833;
+}
+
+body.dark-mode .menu small {
+  background: #3f1d2a;
+  color: #fecdd3;
+}
+
+body.dark-mode .logout {
+  color: #fb7185;
+}
+
+/* Topbar */
+body.dark-mode .topbar {
+  background: #111827;
+  border-bottom-color: var(--line);
+}
+
+body.dark-mode .bell {
+  color: #dbe4f0;
+}
+
+body.dark-mode .user strong {
+  color: #ffffff;
+}
+
+body.dark-mode .user small {
+  color: var(--muted);
+}
+
+body.dark-mode .user span {
+  background: var(--primary);
+  color: #041833;
+}
+
+/* Cards generales */
+body.dark-mode .safe-card,
+body.dark-mode .dashboard-card,
+body.dark-mode .metric-card,
+body.dark-mode .settings-card,
+body.dark-mode .info,
+body.dark-mode .side,
+body.dark-mode .related-box,
+body.dark-mode .zones-card,
+body.dark-mode .risk-card,
+body.dark-mode .risk-item,
+body.dark-mode .risk-box,
+body.dark-mode .status-card,
+body.dark-mode .support-card,
+body.dark-mode .article-card,
+body.dark-mode .faq-card {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* Textos */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .page-title,
+body.dark-mode strong {
+  color: #ffffff;
+}
+
+body.dark-mode p,
+body.dark-mode small,
+body.dark-mode label,
+body.dark-mode span,
+body.dark-mode .page-subtitle {
+  color: var(--text);
+}
+
+body.dark-mode .muted,
+body.dark-mode .field-label,
+body.dark-mode th {
+  color: var(--muted);
+}
+
+/* Inputs */
+body.dark-mode .safe-input,
+body.dark-mode .safe-select,
+body.dark-mode .safe-textarea,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #111827;
+  color: #ffffff;
+  border-color: var(--line);
+}
+
+body.dark-mode .safe-input::placeholder,
+body.dark-mode .safe-textarea::placeholder,
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #8fa1bd;
+}
+
+/* Botones */
+body.dark-mode .safe-button {
+  background: var(--primary);
+  color: #041833;
+}
+
+body.dark-mode .safe-button-outline,
+body.dark-mode .safe-button-ghost {
+  background: #1e2a44;
+  color: #ffffff;
+  border-color: var(--line);
+}
+
+body.dark-mode .safe-button-outline:hover,
+body.dark-mode .safe-button-ghost:hover {
+  background: #243454;
+}
+
+body.dark-mode .safe-button-danger {
+  background: #3f1d2a;
+  color: #fecdd3;
+  border-color: #fb7185;
+}
+
+/* Badges */
+body.dark-mode .badge.success,
+body.dark-mode .zone-status,
+body.dark-mode .status-chip,
+body.dark-mode .status-badge {
+  background: #123c3a;
+  color: var(--primary);
+}
+
+body.dark-mode .badge.warning {
+  background: #3f3109;
+  color: #facc15;
+}
+
+body.dark-mode .badge.danger {
+  background: #3f1d2a;
+  color: #fb7185;
+}
+
+body.dark-mode .badge.info {
+  background: #1e2f5f;
+  color: #93c5fd;
+}
+
+/* Tablas */
+body.dark-mode table,
+body.dark-mode th,
+body.dark-mode td {
+  color: var(--text);
+  border-color: var(--line);
+}
+
+/* Hero turquesa de dashboard / home-status */
+body.dark-mode .hero-card,
+body.dark-mode .status-hero,
+body.dark-mode .home-hero,
+body.dark-mode .summary-hero {
+  color: #041833;
+}
+
+body.dark-mode .hero-card *,
+body.dark-mode .status-hero *,
+body.dark-mode .home-hero *,
+body.dark-mode .summary-hero * {
+  color: #041833;
+}
+
+/* Alertas */
+body.dark-mode .alert-hero {
+  background: #1e2a44;
+  border-color: var(--line);
+}
+
+body.dark-mode .alert-hero.danger {
+  background: #271827;
+  border-color: #5b314d;
+}
+
+body.dark-mode .alert-hero.warning {
+  background: #2f260f;
+  border-color: #6b5417;
+}
+
+body.dark-mode .alert-hero.info {
+  background: #18223d;
+  border-color: #35476f;
+}
+
+body.dark-mode .alert-hero.success {
+  background: #102f28;
+  border-color: #236c5a;
+}
+
+body.dark-mode .hero-icon,
+body.dark-mode .alert-icon,
+body.dark-mode .event-icon {
+  background: #f8fafc;
+}
+
+body.dark-mode .hero-icon .material-icons,
+body.dark-mode .alert-icon .material-icons,
+body.dark-mode .event-icon .material-icons {
+  color: #0f172a;
+}
+
+body.dark-mode .recommendations {
+  background: #2f260f;
+  border-color: #6b5417;
+}
+
+body.dark-mode .mini-map {
+  background: #122f2c;
+  border-color: var(--line);
+}
+
+body.dark-mode .mini-map span {
+  color: #ffffff;
+}
+
+body.dark-mode .related-box {
+  background: #2a1820;
+  border-color: #5b314d;
+}
+
+/* Íconos generales dentro de cards */
+body.dark-mode .safe-card .material-icons,
+body.dark-mode .settings-card h3 .material-icons {
+  background: #123c3a;
+  color: var(--primary);
+}
+
+/* Resumen por tipo de riesgo */
+body.dark-mode .risk-card .material-icons,
+body.dark-mode .risk-item .material-icons,
+body.dark-mode .risk-box .material-icons,
+body.dark-mode .home-status .material-icons,
+body.dark-mode .status-card .material-icons {
+  background: transparent;
+  color: var(--primary);
+}
+
+/* Filas */
+body.dark-mode .incident-row,
+body.dark-mode .event-row,
+body.dark-mode .alert-row,
+body.dark-mode .history-row {
+  background: #1e2a44;
+  color: #ffffff;
+  border-color: var(--line);
+}
+
+body.dark-mode time,
+body.dark-mode .date,
+body.dark-mode .timestamp {
+  color: #d6e2f4;
+}
+
+/* Soporte: cards */
+body.dark-mode app-support-page .safe-card,
+body.dark-mode app-support-page .support-card,
+body.dark-mode app-support-page .article-card,
+body.dark-mode app-support-page .category-card,
+body.dark-mode app-support-page .faq-card {
+  background: #1e2a44;
+  color: #ffffff;
+  border-color: #3d4b66;
+}
+
+body.dark-mode app-support-page .safe-card *,
+body.dark-mode app-support-page .support-card *,
+body.dark-mode app-support-page .article-card *,
+body.dark-mode app-support-page .category-card *,
+body.dark-mode app-support-page .faq-card * {
+  color: #e5eefc;
+}
+
+body.dark-mode app-support-page .safe-card h3,
+body.dark-mode app-support-page .safe-card strong,
+body.dark-mode app-support-page .support-card h3,
+body.dark-mode app-support-page .support-card strong,
+body.dark-mode app-support-page .article-card h3,
+body.dark-mode app-support-page .article-card strong,
+body.dark-mode app-support-page .category-card h3,
+body.dark-mode app-support-page .category-card strong {
+  color: #ffffff;
+}
+
+/* Soporte: links */
+body.dark-mode app-support-page .safe-card a,
+body.dark-mode app-support-page .support-card a,
+body.dark-mode app-support-page .article-card a,
+body.dark-mode app-support-page .category-card a {
+  color: #ffffff;
+}
+
+body.dark-mode app-support-page .safe-card a:hover,
+body.dark-mode app-support-page .support-card a:hover,
+body.dark-mode app-support-page .article-card a:hover,
+body.dark-mode app-support-page .category-card a:hover {
+  color: var(--primary);
+}
+
+/* Soporte: íconos */
+body.dark-mode app-support-page .safe-card .material-icons,
+body.dark-mode app-support-page .support-card .material-icons,
+body.dark-mode app-support-page .article-card .material-icons,
+body.dark-mode app-support-page .category-card .material-icons {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #123c3a;
+  color: var(--primary);
+  border: 1px solid #2c7a72;
+}
+
+/* Soporte: panel desplegado */
+body.dark-mode app-support-page .article-panel,
+body.dark-mode app-support-page .support-panel,
+body.dark-mode app-support-page .help-panel,
+body.dark-mode app-support-page .expanded-panel {
+  background: #1e2a44;
+  color: #ffffff;
+  border-color: #3d4b66;
+}
+
+body.dark-mode app-support-page .article-panel *,
+body.dark-mode app-support-page .support-panel *,
+body.dark-mode app-support-page .help-panel *,
+body.dark-mode app-support-page .expanded-panel * {
+  color: #e5eefc;
+}
+
+/* Soporte: FAQ */
+body.dark-mode app-support-page .faq,
+body.dark-mode app-support-page .faq button,
+body.dark-mode app-support-page .faq-item,
+body.dark-mode app-support-page .faq-row,
+body.dark-mode app-support-page .faq-content {
+  background: #1e2a44;
+  color: #ffffff;
+  border-color: #3d4b66;
+}
+
+body.dark-mode app-support-page .faq *,
+body.dark-mode app-support-page .faq button *,
+body.dark-mode app-support-page .faq-item *,
+body.dark-mode app-support-page .faq-row *,
+body.dark-mode app-support-page .faq-content * {
+  color: #e5eefc;
+}
+
+/* Soporte: search box */
+body.dark-mode app-support-page .search-box,
+body.dark-mode app-support-page .search-box input {
+  background: #ffffff;
+  color: #263755;
+  border-color: #d8e2ee;
+}
+
+body.dark-mode app-support-page .search-box input::placeholder {
+  color: #8090ad;
+}
+
+/* Soporte: hero SOLO si el componente tiene clase hero/support-hero/help-hero */
+body.dark-mode app-support-page .support-hero,
+body.dark-mode app-support-page .help-hero,
+body.dark-mode app-support-page .hero {
+  background: linear-gradient(135deg, #a7f3e4, #20d0bd);
+  color: #041833;
+  border-color: transparent;
+}
+
+body.dark-mode app-support-page .support-hero *,
+body.dark-mode app-support-page .help-hero *,
+body.dark-mode app-support-page .hero * {
+  color: #041833;
+}
+
+body.dark-mode app-support-page .support-hero .material-icons,
+body.dark-mode app-support-page .help-hero .material-icons,
+body.dark-mode app-support-page .hero .material-icons {
+  background: transparent;
+  color: #04a897;
+  border: 0;
+}
+
+/* Toast */
+body.dark-mode .iot-toast {
+  background: #1e2a44;
+  color: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .toast-body strong {
+  color: #ffffff;
+}
+
+body.dark-mode .toast-body p {
+  color: var(--muted);
+}
+
+body.dark-mode .toast-close {
+  color: var(--muted);
+}
+
+/* Scrollbar */
+body.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #111a2e;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+
+/* ─────────────────────────────────────────────
+   FINAL FIX: Support opened articles and FAQ rows
+   ───────────────────────────────────────────── */
+
+/* Panel que aparece al hacer click en "Ver artículos" */
+body.dark-mode app-support-page .mini-articles,
+body.dark-mode app-support-page .mini-articles article,
+body.dark-mode app-support-page .mini-articles div,
+body.dark-mode app-support-page .mini-articles button,
+body.dark-mode app-support-page .article-list,
+body.dark-mode app-support-page .article-list article,
+body.dark-mode app-support-page .article-list div,
+body.dark-mode app-support-page .article-list button {
+  background: #172033 !important;
+  color: #e5eefc !important;
+  border-color: #3d4b66 !important;
+}
+
+/* Cada fila interna del artículo desplegado */
+body.dark-mode app-support-page .mini-articles > *,
+body.dark-mode app-support-page .article-list > *,
+body.dark-mode app-support-page .support-panel > *,
+body.dark-mode app-support-page .expanded-panel > * {
+  background: #172033 !important;
+  color: #e5eefc !important;
+  border: 1px solid #3d4b66 !important;
+}
+
+/* Texto interno de artículos desplegados */
+body.dark-mode app-support-page .mini-articles *,
+body.dark-mode app-support-page .article-list *,
+body.dark-mode app-support-page .support-panel *,
+body.dark-mode app-support-page .expanded-panel * {
+  color: #e5eefc !important;
+}
+
+/* Títulos dentro del panel desplegado */
+body.dark-mode app-support-page .mini-articles strong,
+body.dark-mode app-support-page .mini-articles h3,
+body.dark-mode app-support-page .mini-articles h4,
+body.dark-mode app-support-page .article-list strong,
+body.dark-mode app-support-page .article-list h3,
+body.dark-mode app-support-page .article-list h4 {
+  color: #ffffff !important;
+}
+
+/* Preguntas frecuentes: filas blancas */
+body.dark-mode app-support-page .faq,
+body.dark-mode app-support-page .faq article,
+body.dark-mode app-support-page .faq div,
+body.dark-mode app-support-page .faq button,
+body.dark-mode app-support-page .faq-item,
+body.dark-mode app-support-page .faq-row,
+body.dark-mode app-support-page .faq-content {
+  background: #172033 !important;
+  color: #e5eefc !important;
+  border-color: #3d4b66 !important;
+}
+
+/* Si las FAQ son botones directos dentro de una safe-card */
+body.dark-mode app-support-page .safe-card button:not(.safe-button):not(.safe-button-outline):not(.safe-button-danger) {
+  background: #172033 !important;
+  color: #ffffff !important;
+  border-color: #3d4b66 !important;
+  box-shadow: none !important;
+}
+
+/* Texto dentro de las FAQ */
+body.dark-mode app-support-page .faq *,
+body.dark-mode app-support-page .faq-item *,
+body.dark-mode app-support-page .faq-row *,
+body.dark-mode app-support-page .faq-content *,
+body.dark-mode app-support-page .safe-card button:not(.safe-button):not(.safe-button-outline):not(.safe-button-danger) * {
+  color: #e5eefc !important;
+}
+
+/* Signo + / - de FAQ */
+body.dark-mode app-support-page .faq .material-icons,
+body.dark-mode app-support-page .faq button .material-icons,
+body.dark-mode app-support-page .safe-card button .material-icons {
+  background: transparent !important;
+  color: #20d0bd !important;
+  border: 0 !important;
+}
+
+/* Card seleccionada de categoría: NO debe ponerse clara */
+body.dark-mode app-support-page .category-card.active,
+body.dark-mode app-support-page .category-card.selected,
+body.dark-mode app-support-page .support-card.active,
+body.dark-mode app-support-page .support-card.selected,
+body.dark-mode app-support-page article.active,
+body.dark-mode app-support-page article.selected {
+  background: #1e2a44 !important;
+  color: #ffffff !important;
+  border-color: #20d0bd !important;
+}
+
+/* Botón cancelar del panel */
+body.dark-mode app-support-page .support-panel button,
+body.dark-mode app-support-page .expanded-panel button,
+body.dark-mode app-support-page .article-list button {
+  background: #172033 !important;
+  color: #ffffff !important;
+  border-color: #3d4b66 !important;
+}
+
+/* Evitar que cualquier elemento blanco dentro de soporte quede blanco */
+body.dark-mode app-support-page .safe-card [style*="background: white"],
+body.dark-mode app-support-page .safe-card [style*="background:#fff"],
+body.dark-mode app-support-page .safe-card [style*="background: #fff"] {
+  background: #172033 !important;
+  color: #e5eefc !important;
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE FIX: history search bar only
+   ───────────────────────────────────────────── */
+
+/* Solo afecta al historial */
+body.dark-mode app-history-page .search-box,
+body.dark-mode app-history-page .search-box input,
+body.dark-mode app-history-page .search-box .safe-input,
+body.dark-mode app-history-page input[type="search"],
+body.dark-mode app-history-page input[placeholder*="Buscar"] {
+  background: #111827 !important;
+  color: #ffffff !important;
+  border-color: #3d4b66 !important;
+}
+
+body.dark-mode app-history-page .search-box input::placeholder,
+body.dark-mode app-history-page .search-box .safe-input::placeholder,
+body.dark-mode app-history-page input[type="search"]::placeholder,
+body.dark-mode app-history-page input[placeholder*="Buscar"]::placeholder {
+  color: #b8c7dd !important;
+}
+
+/* Ícono de búsqueda solo en historial */
+body.dark-mode app-history-page .search-box .material-icons {
+  background: #123c3a !important;
+  color: #20d0bd !important;
+  border: 1px solid #2c7a72 !important;
+}
+
+/* ─────────────────────────────────────────────
+   LOGIN FIX - mantener panel verde y texto legible
+   ───────────────────────────────────────────── */
+
+/* Login siempre con fondo claro */
+body.dark-mode app-login-page,
+body.dark-mode app-auth-page,
+body.dark-mode app-login,
+body.dark-mode .login-page,
+body.dark-mode .auth-page,
+body.dark-mode .auth-shell {
+  background: #ffffff !important;
+  color: #061832 !important;
+}
+
+/* Tarjeta del formulario */
+body.dark-mode app-login-page .safe-card,
+body.dark-mode app-auth-page .safe-card,
+body.dark-mode app-login .safe-card,
+body.dark-mode .login-card,
+body.dark-mode .auth-card {
+  background: #ffffff !important;
+  color: #061832 !important;
+  border-color: #9aa8bd !important;
+}
+
+/* Textos del formulario */
+body.dark-mode app-login-page .safe-card *,
+body.dark-mode app-auth-page .safe-card *,
+body.dark-mode app-login .safe-card *,
+body.dark-mode .login-card *,
+body.dark-mode .auth-card * {
+  color: #061832 !important;
+}
+
+/* Subtítulos y textos secundarios del formulario */
+body.dark-mode app-login-page .safe-card p,
+body.dark-mode app-login-page .safe-card small,
+body.dark-mode app-auth-page .safe-card p,
+body.dark-mode app-auth-page .safe-card small,
+body.dark-mode app-login .safe-card p,
+body.dark-mode app-login .safe-card small,
+body.dark-mode .login-card p,
+body.dark-mode .login-card small,
+body.dark-mode .auth-card p,
+body.dark-mode .auth-card small {
+  color: #5f6f86 !important;
+}
+
+/* Inputs del login */
+body.dark-mode app-login-page .safe-card input,
+body.dark-mode app-auth-page .safe-card input,
+body.dark-mode app-login .safe-card input,
+body.dark-mode .login-card input,
+body.dark-mode .auth-card input {
+  background: #edf4ff !important;
+  color: #061832 !important;
+  border-color: #9aa8bd !important;
+}
+
+/* Links del login */
+body.dark-mode app-login-page .safe-card a,
+body.dark-mode app-auth-page .safe-card a,
+body.dark-mode app-login .safe-card a,
+body.dark-mode .login-card a,
+body.dark-mode .auth-card a {
+  color: #04a897 !important;
+}
+
+/* Botón principal */
+body.dark-mode app-login-page .safe-card .safe-button,
+body.dark-mode app-auth-page .safe-card .safe-button,
+body.dark-mode app-login .safe-card .safe-button,
+body.dark-mode .login-card .safe-button,
+body.dark-mode .auth-card .safe-button {
+  background: #20d0bd !important;
+  color: #061832 !important;
+}
+
+/* Botones secundarios dentro del formulario */
+body.dark-mode app-login-page .safe-card .safe-button-outline,
+body.dark-mode app-login-page .safe-card .safe-button-ghost,
+body.dark-mode app-auth-page .safe-card .safe-button-outline,
+body.dark-mode app-auth-page .safe-card .safe-button-ghost,
+body.dark-mode app-login .safe-card .safe-button-outline,
+body.dark-mode app-login .safe-card .safe-button-ghost,
+body.dark-mode .login-card .safe-button-outline,
+body.dark-mode .login-card .safe-button-ghost,
+body.dark-mode .auth-card .safe-button-outline,
+body.dark-mode .auth-card .safe-button-ghost {
+  background: #eef4ff !important;
+  color: #061832 !important;
+  border-color: #c7d4e8 !important;
+}
+
+/* Panel verde derecho: restaurar colores */
+body.dark-mode .auth-hero,
+body.dark-mode .login-hero,
+body.dark-mode app-login-page .auth-hero,
+body.dark-mode app-login-page .login-hero,
+body.dark-mode app-auth-page .auth-hero,
+body.dark-mode app-auth-page .login-hero,
+body.dark-mode app-login .auth-hero,
+body.dark-mode app-login .login-hero {
+  background: linear-gradient(135deg, #35d5c4, #20d0bd) !important;
+  color: #061832 !important;
+  border-radius: 28px !important;
+}
+
+/* Textos del panel verde */
+body.dark-mode .auth-hero *,
+body.dark-mode .login-hero *,
+body.dark-mode app-login-page .auth-hero *,
+body.dark-mode app-login-page .login-hero *,
+body.dark-mode app-auth-page .auth-hero *,
+body.dark-mode app-auth-page .login-hero *,
+body.dark-mode app-login .auth-hero *,
+body.dark-mode app-login .login-hero * {
+  color: #061832 !important;
+}
+
+/* Cajas internas del panel verde */
+body.dark-mode .auth-hero li,
+body.dark-mode .login-hero li,
+body.dark-mode .auth-hero .hero-feature,
+body.dark-mode .login-hero .hero-feature {
+  background: rgba(255, 255, 255, 0.35) !important;
+  color: #061832 !important;
+}
