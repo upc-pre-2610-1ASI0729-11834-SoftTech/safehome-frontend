@@ -1,0 +1,285 @@
+{
+  "teamCredentials": {
+    "email": "safehometeam@gmail.com",
+    "password": "12345"
+  },
+  "user": {
+    "name": "SafeHome Team",
+    "email": "safehometeam@gmail.com",
+    "phone": "+51 987 654 321",
+    "address": "Av. Los \u00c1lamos 142, Lima",
+    "plan": "SafeHome Pro",
+    "initials": "ST",
+    "memberSince": "January 2025"
+  },
+  "blankSettings": {
+    "homeName": "",
+    "emailNotifications": true,
+    "pushNotifications": true,
+    "systemNotifications": true,
+    "emailSummary": false,
+    "autoArm": true,
+    "darkMode": false,
+    "twoFactor": false,
+    "autoLogout": true,
+    "loginAlerts": true,
+    "sensibility": "Medium",
+    "updateTime": "30 seconds",
+    "sessionDuration": "8 hours",
+    "zoneReviewInterval": "6 hours",
+    "historyRetention": "6 months",
+    "hiddenSensors": false,
+    "language": "en"
+  },
+  "settings": {
+    "homeName": "Main home",
+    "emailNotifications": true,
+    "pushNotifications": true,
+    "systemNotifications": true,
+    "emailSummary": false,
+    "autoArm": true,
+    "darkMode": false,
+    "twoFactor": true,
+    "autoLogout": true,
+    "loginAlerts": true,
+    "sensibility": "Medium",
+    "updateTime": "30 seconds",
+    "sessionDuration": "8 hours",
+    "zoneReviewInterval": "6 hours",
+    "historyRetention": "6 months",
+    "hiddenSensors": false,
+    "language": "en"
+  },
+  "devices": [
+    {
+      "id": 1,
+      "name": "Sensor PIR-01",
+      "code": "SH-2024-PIR-01",
+      "type": "motion",
+      "zone": "Main entrance",
+      "status": "active",
+      "battery": 87,
+      "lastSeen": "6 min ago",
+      "description": "Infrared motion sensor installed at the main entrance."
+    },
+    {
+      "id": 2,
+      "name": "Camera CAM-02",
+      "code": "SH-2024-CAM-02",
+      "type": "camera",
+      "zone": "Living room",
+      "status": "active",
+      "battery": 100,
+      "lastSeen": "4 min ago",
+      "description": "Indoor camera connected in the living room."
+    },
+    {
+      "id": 3,
+      "name": "Smart lock",
+      "code": "SH-2024-LOCK-03",
+      "type": "lock",
+      "zone": "Main entrance",
+      "status": "active",
+      "battery": 92,
+      "lastSeen": "5 min ago",
+      "description": "Smart lock assigned to the main door."
+    },
+    {
+      "id": 4,
+      "name": "Smoke detector",
+      "code": "SH-2024-SMK-04",
+      "type": "smoke",
+      "zone": "Kitchen",
+      "status": "warning",
+      "battery": 13,
+      "lastSeen": "25 min ago",
+      "description": "Smoke and heat detector installed in the kitchen."
+    },
+    {
+      "id": 5,
+      "name": "Camera CAM-04",
+      "code": "SH-2024-CAM-04",
+      "type": "camera",
+      "zone": "Hallway",
+      "status": "offline",
+      "battery": 0,
+      "lastSeen": "Disconnected",
+      "description": "Hallway camera pending reconnection."
+    },
+    {
+      "id": 6,
+      "name": "Window sensor-03",
+      "code": "SH-2024-WIN-03",
+      "type": "window",
+      "zone": "Bedroom",
+      "status": "active",
+      "battery": 96,
+      "lastSeen": "6 min ago",
+      "description": "Magnetic sensor placed on the bedroom window."
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Motion detected at the main entrance",
+      "device": "Sensor PIR-01",
+      "zone": "Main entrance",
+      "type": "intrusion",
+      "severity": "critical",
+      "status": "active",
+      "createdAt": "Today, 09:15",
+      "description": "Movement was detected outside the usual schedule."
+    },
+    {
+      "id": 2,
+      "title": "Low battery - Smoke detector in kitchen",
+      "device": "Smoke detector",
+      "zone": "Kitchen",
+      "type": "battery",
+      "severity": "medium",
+      "status": "active",
+      "createdAt": "Today, 08:42",
+      "description": "The smoke detector battery is below the recommended level."
+    },
+    {
+      "id": 3,
+      "title": "Camera disconnected - CAM-04 Hallway",
+      "device": "Camera CAM-04",
+      "zone": "Hallway",
+      "type": "camera",
+      "severity": "medium",
+      "status": "active",
+      "createdAt": "Yesterday, 22:14",
+      "description": "The hallway camera has not reported signal for several hours."
+    },
+    {
+      "id": 4,
+      "title": "Camera CAM-02 started automatic recording",
+      "device": "Camera CAM-02",
+      "zone": "Living room",
+      "type": "camera",
+      "severity": "info",
+      "status": "attended",
+      "createdAt": "Yesterday, 18:00",
+      "description": "The system started recording due to detected activity."
+    },
+    {
+      "id": 5,
+      "title": "Main door secured",
+      "device": "Smart lock",
+      "zone": "Main entrance",
+      "type": "lock",
+      "severity": "resolved",
+      "status": "resolved",
+      "createdAt": "Yesterday, 07:30",
+      "description": "The main door was secured correctly."
+    },
+    {
+      "id": 6,
+      "title": "Night mode activated",
+      "device": "SafeHome System",
+      "zone": "All zones",
+      "type": "system",
+      "severity": "resolved",
+      "status": "resolved",
+      "createdAt": "May 04, 23:00",
+      "description": "Night monitoring mode was enabled automatically."
+    },
+    {
+      "id": 7,
+      "title": "Smoke sensor normal reading",
+      "device": "Smoke detector",
+      "zone": "Kitchen",
+      "type": "system",
+      "severity": "resolved",
+      "status": "resolved",
+      "createdAt": "May 03, 14:22",
+      "description": "Smoke level returned to normal values."
+    },
+    {
+      "id": 8,
+      "title": "Window sensor opened",
+      "device": "Window sensor-03",
+      "zone": "Bedroom",
+      "type": "intrusion",
+      "severity": "medium",
+      "status": "attended",
+      "createdAt": "May 02, 20:10",
+      "description": "The bedroom window sensor reported an opening event."
+    }
+  ],
+  "zones": [
+    {
+      "id": 1,
+      "name": "Main entrance",
+      "deviceCount": 3,
+      "status": "safe",
+      "signal": 91
+    },
+    {
+      "id": 2,
+      "name": "Living room",
+      "deviceCount": 2,
+      "status": "safe",
+      "signal": 86
+    },
+    {
+      "id": 3,
+      "name": "Kitchen",
+      "deviceCount": 2,
+      "status": "warning",
+      "signal": 67
+    },
+    {
+      "id": 4,
+      "name": "Bedroom",
+      "deviceCount": 2,
+      "status": "safe",
+      "signal": 95
+    },
+    {
+      "id": 5,
+      "name": "Hallway",
+      "deviceCount": 1,
+      "status": "critical",
+      "signal": 32
+    },
+    {
+      "id": 6,
+      "name": "Back patio",
+      "deviceCount": 1,
+      "status": "safe",
+      "signal": 88
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "title": "Successful sign in",
+      "description": "Chrome \u00b7 Lima, PE",
+      "time": "Today, 09:15",
+      "tone": "success"
+    },
+    {
+      "id": 2,
+      "title": "Device added",
+      "description": "Sensor PIR-07 registered",
+      "time": "Today, 08:30",
+      "tone": "success"
+    },
+    {
+      "id": 3,
+      "title": "Alert marked as attended",
+      "description": "Motion \u00b7 Living room",
+      "time": "Yesterday, 22:14",
+      "tone": "warning"
+    },
+    {
+      "id": 4,
+      "title": "Settings updated",
+      "description": "Alert sensitivity modified",
+      "time": "Yesterday, 18:00",
+      "tone": "info"
+    }
+  ]
+}
